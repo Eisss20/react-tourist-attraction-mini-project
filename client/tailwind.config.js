@@ -5,7 +5,12 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        ImbSansThai: ["IBM Plex Sans Thai"],
+        NotoSans:["Noto Sans Thai"]
+      },
+    },
   },
   plugins: [],
 }

@@ -26,13 +26,13 @@ function MainBody() {
   }, [input]);
 
   return (
-    <div className="bg-gray-200">
-      <header className="container mx-auto px-4 py-8 text-center">
-        <h1 className="mb-8 text-4xl font-bold text-blue-500">เที่ยวไหนดี</h1>
-        <div className="mx-auto max-w-2xl">
-          <label className="block text-gray-700 text-sm text-left ">ค้นหาที่เที่ยว</label>
+    <div className=" font-NotoSans font-bold">
+      <header className="container mx-auto px-4 py-8 mt-5 text-center">
+        <h1 className="mb-8 text-6xl font-bold text-blue-500">เที่ยวไหนดี</h1>
+        <div className="mx-auto max-w-7xl">
+          <label className="block text-gray-700 text-sm text-left">ค้นหาที่เที่ยว</label>
           <input
-            className="w-full rounded-lg border border-gray-300 px-4 py-3 text-sm  shadow-sm transition-colors placeholder-gray-400 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
+            className="w-full rounded-lg border border-gray-300 px-4 py-3 text-sm text-center shadow-sm transition-colors placeholder-gray-400 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
             type="text"
             value={input}
             onChange={(event) => setInput(event.target.value)}
@@ -49,28 +49,34 @@ function MainBody() {
               <img
                 src={item.photos[0]}
                 alt={item.title}
-                className="w-1/3 h-auto  rounded-lg mr-10"
+                className="w-1/3 h-1/4  rounded-lg      mr-10"
               />
 
-              {/* Content Section */}
+              {/* descript Section */}
               <div className="flex-1">
                 <h2 className="text-2xl font-semibold text-gray-800 mb-2">
                   {item.title}
                 </h2>
-                <p className="text-gray-600 mb-4">
+                <p className="text-gray-600">
                   {item.description.length > 100
                     ? item.description.substring(0, 100) + "..."
                     : item.description}
                 </p>
 
-
-                <a href="#"
-                  className="text-blue-500 font-semibold hover:underline"> อ่านต่อ  </a>
+                        {/* image url */}
+                <div>
+                  <a
+                    href={item.url} // ใช้ item.url โดยตรง
+                    className="text-sky-400 font-semibold underline  hover:underline"
+                    target="_blank">
+                    อ่านต่อ
+                  </a>
+                </div>
 
                 <div className="text-gray-500 text-sm flex flex-wrap gap-2 mb-4">
                     <span> หมวด </span>
                   {item.tags.map((tag, tagIndex) => (
-                    <span key={tagIndex} className="px-3 py-1 bg-gray-200 rounded-full text-sm">
+                    <span key={tagIndex} className="px-3 underline rounded-full text-sm">
                       {tag}
                     </span>
                   ))}
@@ -88,9 +94,9 @@ function MainBody() {
                     />
                   ))}
                 </div>
-
-
                   
+                    
+
               </div>
             </div>
           ))
