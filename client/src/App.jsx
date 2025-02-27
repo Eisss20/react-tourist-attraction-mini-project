@@ -10,20 +10,17 @@ function App() {
   const [getData, setGetData] = useState([]);
 
   const fetchDataTour = async () => {
+    if (!input.trim()) return; 
     try {
-      const response = await axios.get(`http://localhost:4001/trips?keywords=${input}`);
+      const response = await axios.get(`${import.meta.env.VITE_API_URL}/trips?keywords=${input}`);
       setGetData(response.data.data);
     } catch (error) {
-      console.log(error);
+      console.error("Error fetching data:", error);
     }
   };
 
   useEffect(() => {
-    fetchDataTour();
-  }, []);
-
-  useEffect(() => {
-    fetchDataTour();
+    if (input.trim()) fetchDataTour();
   }, [input]);
 
   return (
