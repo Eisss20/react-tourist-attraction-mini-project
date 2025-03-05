@@ -5,7 +5,7 @@ import trips from "./db.js";
 
 const app = express();
 
-app.use(cors());
+app.use(cors()); // เปิดให้ทุก origin ใช้
 app.use(bodyParser.json());
 
 app.get("/", (req, res) => {
