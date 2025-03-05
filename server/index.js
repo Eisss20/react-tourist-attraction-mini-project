@@ -4,13 +4,12 @@ import bodyParser from "body-parser";
 import trips from "./db.js"; 
 
 const app = express();
-const PORT = process.env.PORT || 4001;
 
 app.use(cors());
 app.use(bodyParser.json());
 
 app.get("/", (req, res) => {
-  res.send("Hello from Express on Render!");
+  res.send("Hello from Vercel Backend!");
 });
 
 // API ค้นหาทริป
@@ -37,6 +36,5 @@ app.get("/trips", (req, res) => {
   return res.json({ data: results });
 });
 
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
-});
+
+export default app;
